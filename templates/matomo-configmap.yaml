@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "matomo.fullname" . }}-config
+  labels:
+    app: {{ template "matomo.name" . }}
+    chart: {{ template "matomo.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  MATOMO_DATABASE_ADAPTER: {{ .Values.db.adapter | quote }}
+  MATOMO_DATABASE_HOST: {{ .Values.db.host | quote }}
+  MATOMO_DATABASE_TABLES_PREFIX: {{ .Values.db.table_prefix | quote }}
+  MATOMO_DATABASE_DBNAME: {{ .Values.db.name | quote }}
+  PHP_MEMORY_LIMIT: {{ .Values.php.memory_limit | quote }}
