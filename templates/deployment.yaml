@@ -53,7 +53,7 @@ spec:
               name: html-files
 {{- if .Values.php.no_install }}
             - mountPath: /var/www/html/config
-              name: {{ template "matomo.fullname" . }}-config-ini-php-secrets
+              name: php-config
 {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
