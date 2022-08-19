@@ -33,9 +33,9 @@ ingress:
   hosts:
     - matomo.inarix.com
   tls:
-   - secretName: xxx-secret-tls
-     hosts:
-       - matomo.inarix.com
+    - secretName: matomo-secret-tls
+      hosts:
+        - matomo.inarix.com
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -43,11 +43,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-   cpu: 1
-   memory: 1Gi
+    cpu: 1
+    memory: 1Gi
   requests:
-   cpu: 1
-   memory: 1Gi
+    cpu: 1
+    memory: 1Gi
 
 nodeSelector: {}
 
