@@ -54,6 +54,8 @@ spec:
 {{- if .Values.php.no_install }}
             - mountPath: /var/www/html/config
               name: php-config
+            - mountPath: /var/www/html/config
+              name: htaccess
 {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
@@ -72,8 +74,13 @@ spec:
       volumes:
 {{- if .Values.php.no_install }}
       - name: php-config
+        defaultMode: 622
         secret:
           secretName: {{ template "matomo.fullname" . }}-config-ini-php-secrets
+      - name: htaccess
+        defaultMode: 622
+        configmap:
+          name: {{ template "matomo.fullname" . }}-htaccess
 {{- end }}
       - name: config
         configMap:
