@@ -114,13 +114,14 @@ ingress:
   annotations:
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/whitelist-source-range: 188.241.83.164/32
   path: /
   hosts:
     - matomo.inarix.com
   tls:
     - secretName: matomo-secret-tls
       hosts:
-        - matomo.inarix.com
+      - matomo.inarix.com
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
