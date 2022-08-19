@@ -31,18 +31,18 @@ php:
     ; <?php exit; ?> DO NOT REMOVE THIS LINE
     ; file automatically generated or modified by Matomo; you can manually override the default values in global.ini.php by redefining them in this file.
     [database]
-    host = %s
-    username = %s
-    password = %s
-    dbname = %s
-    tables_prefix = %s
-    charset = %s
+    host = "%s"
+    username = "%s"
+    password = "%s"
+    dbname = "%s"
+    tables_prefix = "%s"
+    charset = "%s"
 
     [General]
     proxy_client_headers[] = "HTTP_X_FORWARDED_FOR"
     proxy_host_headers[] = "HTTP_X_FORWARDED_HOST"
-    salt = %s
-    trusted_hosts[] = %s
+    salt = "%s"
+    trusted_hosts[] = "%s"
 
     [PluginsInstalled]
     PluginsInstalled[] = "Diagnostics"
