@@ -22,7 +22,11 @@ db:
   password:
 
 php:
+  no_install: true
   memory_limit: 2048M
+  trusted_host: matomo.inarix.com
+  salt:
+  charset: utf8mb4
 
 ingress:
   enabled: true
