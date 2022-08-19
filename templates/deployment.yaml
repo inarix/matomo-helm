@@ -78,7 +78,7 @@ spec:
           defaultMode: 622
           secretName: {{ template "matomo.fullname" . }}-config-ini-php-secrets
       - name: htaccess
-        configmap:
+        configMap:
           defaultMode: 622
           name: {{ template "matomo.fullname" . }}-htaccess
 {{- end }}
