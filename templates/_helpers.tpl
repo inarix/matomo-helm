@@ -44,3 +44,10 @@ Create matomo database password
 {{- define "matomo.db.password" }}
     {{- printf "%s" (required "A valid .Values.db.password entry required!" .Values.db.password) | b64enc -}}
 {{- end -}}
+
+{{/*
+Create matomo config ini php
+*/}}
+{{- define "matomo.php.config" }}
+    {{- printf .Values.php.config .Values.db.host .Values.db.username .Values.db.password .Values.db.name .Values.db.table_prefix .Values.php.charset .Values.php.salt .Values.php.trusted_host | b64enc -}}
+{{- end -}}

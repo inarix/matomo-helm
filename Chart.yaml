@@ -1,6 +1,6 @@
 apiVersion: v2
 name: matomo
-description: a helm chart for kubernetes matomo
+description: a helm chart for kubernetes to deploy matomo
 type: application
-version: 0.2.0
+version: 0.2.1
 appVersion: "latest"
