@@ -1,5 +1,5 @@
 apiVersion: v2
-name: clearstatus
+name: matomo
 description: a helm chart for kubernetes matomo
 type: application
 version: 0.2.0
