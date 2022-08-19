@@ -74,12 +74,12 @@ spec:
       volumes:
 {{- if .Values.php.no_install }}
       - name: php-config
-        defaultMode: 622
         secret:
+          defaultMode: 622
           secretName: {{ template "matomo.fullname" . }}-config-ini-php-secrets
       - name: htaccess
-        defaultMode: 622
         configmap:
+          defaultMode: 622
           name: {{ template "matomo.fullname" . }}-htaccess
 {{- end }}
       - name: config
