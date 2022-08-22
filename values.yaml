@@ -114,7 +114,7 @@ ingress:
   annotations:
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/whitelist-source-range: 188.241.83.164/32
+    nginx.ingress.kubernetes.io/whitelist-source-range: 188.241.83.164/32,13.248.181.17/32,76.223.72.159/32
   path: /
   hosts:
     - matomo.inarix.com
