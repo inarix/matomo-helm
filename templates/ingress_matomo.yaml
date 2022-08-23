@@ -4,16 +4,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}-webpage
+  name: {{ $fullName }}-matomo-backend
   labels:
     app: {{ template "matomo.name" . }}
     chart: {{ template "matomo.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-{{- with .Values.ingress.annotations }}
   annotations:
-{{ toYaml . | indent 4 }}
-{{- end }}
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
 {{- if .Values.ingress.tls }}
@@ -31,8 +30,8 @@ spec:
     - host: {{ . }}
       http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /matomo.php/
+            pathType: Exact 
             backend:
               service:
                 name: {{ $fullName }}
